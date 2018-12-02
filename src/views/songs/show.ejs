@@ -8,6 +8,7 @@
      <main class="container">
 
       <h2><%= song.originalname.split(".").slice(0, -1).join(".") %></h2>
+      
       <audio controls="controls">
           <source src="/songs/<%=song.originalname%>"/> <!--Using PSQL metadata to retrieve audio file from multer destination path in app directory -->
       </audio>
