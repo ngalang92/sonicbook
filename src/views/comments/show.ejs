@@ -1,0 +1,18 @@
+<% if(comment) { %>
+  <div style="width: 50%">
+    <hr>
+    <p><%= comment.dataValues.body %></p>
+    <small class="card-subtitle mb-2 text-muted">
+      sent by <%= comment.User.username %> on <%= comment.createdAt %>
+    </small>
+
+    <% if(currentUser.id === comment.userId) { %>
+      <form style="display:initial"
+            action="/songs/<%= song.id %>/comments/<%= comment.id %>/destroy"
+            method="post">
+        <button type="submit" class="btn btn btn-sm btn-outline-danger">Delete</button>
+      </form>
+    <% } %>
+    <hr>
+  </div>
+<% } %>

@@ -13,10 +13,4 @@ sequelize db:migrate
 
 Then, run "npm start"
 
-
-To run the app on Heroku, run this in your command line terminal:
-
-heroku config:set megasecret="sonicbook heroku megasecret configured"
-
-Then, open the following link.
 # sonicbook

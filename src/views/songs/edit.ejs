@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+     <main class="container">
+       <h1>Edit Song</h1>
+      <form action="/songs/<%=song.id%>/<%= song.originalname %>/update" enctype="multipart/form-data" method="post">
+        <input type="file" name="song" />
+        <input type="submit" value="Upload a file"/>
+      </form>
+    </main>
+     <% include ../static/partials/baseScripts.ejs %>
+   </body>
+</html>
