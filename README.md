@@ -9,7 +9,7 @@ Copy and paste the contents of .env.sample file into .env file.
 Configure the SQL database by running this in your command line terminal:
 
 sequelize db:migrate
-sequelize db:migrate
+
 
 Then, run "npm start"
 
