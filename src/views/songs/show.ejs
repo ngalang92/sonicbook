@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+     <main class="container">
+
+      <h2><%= song.originalname.split(".").slice(0, -1).join(".") %></h2>
+      <audio controls="controls">
+          <source src="/songs/<%=song.originalname%>"/> <!--Using PSQL metadata to retrieve audio file from multer destination path in app directory -->
+      </audio>
+
+      <% if(currentUser.id === song.userId) { %>
+      <a href="/songs/<%= song.id %>/<%= song.originalname %>/edit" class="btn btn-warning">Edit</a> <!--Button to send current song meta info from PSQL to the edit.ejs page -->
+
+      <a href="/songs/<%= song.id %>/<%= song.originalname %>/delete"  class="btn btn-danger">Delete</a>
+      <% } %>
+
+      <section id="comment-form">
+
+       <% if(currentUser) { %>
+         <% include ../comments/new.ejs %>
+       <% } %>
+
+      </section>
+
+      <section id="comment-list">
+       <% if(song.comments) { %>
+         <% song.comments.forEach((comment) => { %>
+           <%- include("../comments/show.ejs", {comment}) %>
+         <% }) %>
+       <% } %>
+      </section>
+
+    </main>
+     <% include ../static/partials/baseScripts.ejs %>
+   </body>
+</html>

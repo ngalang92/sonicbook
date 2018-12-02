@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+       <h1>Songs</h1>
+       <% if(!currentUser) { %>
+         <small>Please sign up/sign in to upload and view your songs.</small>
+       <% } %>
+       <% if(currentUser) { %>
+         <a href="/songs/upload" class="btn btn-success">Upload Song</a>
+
+      <ul class="list-group">
+        <% songsData.forEach((song) => { %>  <!-- songsData is coming from songController.index/PSQL-->
+            <li class="list-group-item">
+              <a href="/songs/<%= song.id %>/<%= song.originalname %>"> <%= song.fileName %> </a>
+            </li>
+        <% }) %>
+      </ul>
+      <% } %>
+     </main>
+  </body>
+</html>
