@@ -16,13 +16,14 @@ const songQueries = require("../db/queries.songs.js");
       res.render("songs/upload");
   },
   create(req, res, next){
-    //console.log(req);
+    console.log(req);
      let newSong = {  //sending this object to songQueries to send to PSQL
        fieldname: res.fieldname,
        originalname: res.originalname,
        encoding: res.encoding,
        mimetype: res.mimetype,
-       userId: req.user.dataValues.id
+       userId: req.user.dataValues.id,
+       userName: req.user.dataValues.username
      };
      songQueries.uploadSong(newSong, (err, song) => {
        if(err){

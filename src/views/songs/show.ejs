@@ -12,6 +12,10 @@
           <source src="/songs/<%=song.originalname%>"/> <!--Using PSQL metadata to retrieve audio file from multer destination path in app directory -->
       </audio>
 
+      <small class="card-subtitle mb-2 text-muted">
+        uploaded by <%= song.userName %> on <%= song.createdAt %>
+      </small>
+
       <% if(currentUser.id === song.userId) { %>
       <a href="/songs/<%= song.id %>/<%= song.originalname %>/edit" class="btn btn-warning">Edit</a> <!--Button to send current song meta info from PSQL to the edit.ejs page -->
 
