@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     originalname: DataTypes.STRING,
     encoding: DataTypes.BLOB,
     mimetype: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    userName: DataTypes.STRING
   }, {});
   Song.associate = function(models) {
     Song.belongsTo(models.User, {

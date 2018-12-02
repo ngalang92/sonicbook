@@ -33,6 +33,7 @@ module.exports = {
       encoding: newSong.encoding,
       mimetype: newSong.mimetype,
       userId: newSong.userId,
+      userName: newSong.userName
    })
 
  },
